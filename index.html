@@ -5,16 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>دليل استخدام نظام تمريض العيادات - Apexora</title>
     <!-- Google Fonts - Cairo -->
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
             --primary: #0f2942;
+            --primary-dark: #0a1c2e;
             --accent: #0055fe;
+            --accent-hover: #0042cc;
             --teal: #00897b;
-            --bg-light: #f8fafc;
-            --text-main: #334155;
+            --bg-light: #f4f7fa;
+            --card-bg: #ffffff;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
             --border-color: #e2e8f0;
         }
 
@@ -29,108 +33,197 @@
             background-color: var(--bg-light);
             color: var(--text-main);
             line-height: 1.8;
+            overflow-x: hidden;
         }
 
+        /* Header Header Area */
         header {
-            background: linear-gradient(135deg, var(--primary), var(--accent));
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 50%, #1b365d 100%);
             color: white;
+            padding: 50px 20px 80px;
             text-align: center;
-            padding: 60px 20px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            position: relative;
+            box-shadow: 0 10px 30px rgba(15, 41, 66, 0.2);
+        }
+
+        .header-logo {
+            width: 110px;
+            height: 110px;
+            margin: 0 auto 20px;
+            border-radius: 50%;
+            background: #fff;
+            padding: 8px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            border: 3px solid var(--accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .header-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            border-radius: 50%;
         }
 
         header h1 {
             font-size: 2.5rem;
-            margin-bottom: 15px;
             font-weight: 900;
+            letter-spacing: -0.5px;
+            margin-bottom: 10px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
         }
 
         header p {
-            font-size: 1.2rem;
-            opacity: 0.9;
-            max-width: 600px;
-            margin: 0 auto;
+            font-size: 1.15rem;
+            color: #cbd5e1;
+            max-width: 650px;
+            margin: 0 auto 20px;
         }
 
+        .developer-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            color: #60a5fa;
+            direction: ltr;
+            font-weight: 600;
+        }
+
+        /* Container & Navigation */
         .container {
-            max-width: 1000px;
-            margin: -30px auto 50px;
+            max-width: 1100px;
+            margin: -40px auto 60px;
             padding: 0 20px;
             position: relative;
             z-index: 10;
         }
 
-        .step-card {
+        .quick-nav {
             background: white;
             border-radius: 16px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            padding: 15px 25px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+            margin-bottom: 40px;
+            border: 1px solid var(--border-color);
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .nav-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--text-main);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+        }
+
+        .nav-item:hover {
+            color: var(--accent);
+        }
+
+        .nav-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: #eff6ff;
+            color: var(--accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.85rem;
+        }
+
+        /* Step Card */
+        .step-card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.04);
             margin-bottom: 40px;
             overflow: hidden;
             border: 1px solid var(--border-color);
-            transition: transform 0.3s ease;
+            transition: all 0.3s ease;
         }
 
         .step-card:hover {
-            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.08);
         }
 
         .step-header {
             background: var(--primary);
             color: white;
-            padding: 20px 30px;
+            padding: 22px 30px;
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 18px;
         }
 
         .step-number {
-            background: var(--accent);
+            background: linear-gradient(135deg, var(--accent), #2563eb);
             color: white;
             width: 45px;
             height: 45px;
-            border-radius: 50%;
+            border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-weight: bold;
-            font-size: 1.3rem;
+            font-weight: 800;
+            font-size: 1.4rem;
+            box-shadow: 0 4px 12px rgba(0, 85, 254, 0.4);
             flex-shrink: 0;
         }
 
         .step-title h2 {
-            font-size: 1.4rem;
-            font-weight: 700;
+            font-size: 1.35rem;
+            font-weight: 800;
         }
 
         .step-body {
-            padding: 30px;
+            padding: 35px;
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 30px;
+            gap: 35px;
             align-items: center;
         }
 
-        @media (max-width: 768px) {
+        @media (max-width: 850px) {
             .step-body {
                 grid-template-columns: 1fr;
             }
         }
 
         .step-content p {
-            margin-bottom: 15px;
             font-size: 1.05rem;
+            color: #334155;
+            margin-bottom: 20px;
+            line-height: 1.9;
         }
 
         .feature-list {
             list-style: none;
-            margin-top: 15px;
         }
 
         .feature-list li {
             position: relative;
-            padding-right: 25px;
-            margin-bottom: 10px;
-            font-size: 0.98rem;
+            padding-right: 32px;
+            margin-bottom: 14px;
+            font-size: 1rem;
+            color: #1e293b;
+            font-weight: 600;
         }
 
         .feature-list li::before {
@@ -139,48 +232,84 @@
             font-weight: 900;
             position: absolute;
             right: 0;
-            color: var(--teal);
+            top: 2px;
+            width: 22px;
+            height: 22px;
+            background: #e0f2fe;
+            color: var(--accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
         }
 
         .img-container {
             text-align: center;
+            position: relative;
         }
 
         .img-container img {
-            max-width: 100%;
-            border-radius: 10px;
-            border: 2px solid var(--border-color);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            width: 100%;
+            border-radius: 12px;
+            border: 3px solid #f1f5f9;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
             cursor: pointer;
-            transition: transform 0.3s;
+            transition: all 0.3s ease;
         }
 
         .img-container img:hover {
             transform: scale(1.02);
+            border-color: var(--accent);
         }
 
         .img-caption {
             font-size: 0.85rem;
-            color: #64748b;
-            margin-top: 8px;
+            color: var(--text-muted);
+            margin-top: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
         }
 
         .note-box {
-            background: #e0f2fe;
+            background: #f0f9ff;
             border-right: 4px solid var(--accent);
-            padding: 15px 20px;
+            padding: 16px 20px;
             border-radius: 8px;
-            margin-top: 15px;
+            margin-top: 20px;
             font-size: 0.95rem;
             color: #0369a1;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
         }
 
+        .note-box i {
+            font-size: 1.2rem;
+            margin-top: 3px;
+            color: var(--accent);
+        }
+
+        /* Footer */
         footer {
-            text-align: center;
-            padding: 30px;
-            background: var(--primary);
+            background: var(--primary-dark);
             color: white;
-            font-size: 0.95rem;
+            padding: 40px 20px;
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        footer .dev-credit {
+            font-size: 1rem;
+            color: #94a3b8;
+            margin-top: 10px;
+            direction: ltr;
+        }
+
+        footer .dev-credit strong {
+            color: #60a5fa;
         }
 
         /* Lightbox Modal */
@@ -192,36 +321,69 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0,0,0,0.8);
+            background: rgba(15, 23, 42, 0.9);
             align-items: center;
             justify-content: center;
+            backdrop-filter: blur(5px);
         }
+
         .modal img {
-            max-width: 90%;
-            max-height: 90%;
-            border-radius: 8px;
+            max-width: 92%;
+            max-height: 90vh;
+            border-radius: 12px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
         }
+
         .modal-close {
             position: absolute;
-            top: 20px;
-            left: 30px;
+            top: 25px;
+            left: 35px;
             color: white;
-            font-size: 2rem;
+            font-size: 2.2rem;
             cursor: pointer;
+            transition: color 0.2s;
+        }
+
+        .modal-close:hover {
+            color: #f43f5e;
         }
     </style>
 </head>
 <body>
 
+    <!-- Header Section -->
     <header>
+        <div class="header-logo">
+            <img src="logo.jpg" alt="Apexora Logo">
+        </div>
         <h1>دليل استخدام نظام تمريض العيادات</h1>
-        <p>دليلك الشامل لخطوات تشغيل وإدارة الحالات اليومية باحترافية وسهولة تامة عبر منصة Apexora</p>
+        <p>دليلك التفاعلي الشامل للتعامل مع برنامج إدارة العيادات Apexora Health Solutions بأسلوب مبسط واحترافي</p>
+        <div class="developer-badge">
+            <i class="fa-solid fa-code"></i>
+            Designed & Developed by Mohamed Abdel Nasser Abdel Moneim
+        </div>
     </header>
 
     <div class="container">
 
-        <!-- الخطوة الأولى -->
-        <div class="step-card">
+        <!-- Quick Navigation -->
+        <div class="quick-nav">
+            <a href="#step1" class="nav-item">
+                <span class="nav-icon">1</span> تسجيل الدخول
+            </a>
+            <a href="#step2" class="nav-item">
+                <span class="nav-icon">2</span> الترحيب والعيادة
+            </a>
+            <a href="#step3" class="nav-item">
+                <span class="nav-icon">3</span> تسجيل البيانات
+            </a>
+            <a href="#step4" class="nav-item">
+                <span class="nav-icon">4</span> إدارة السجل
+            </a>
+        </div>
+
+        <!-- Step 1 -->
+        <div class="step-card" id="step1">
             <div class="step-header">
                 <div class="step-number">1</div>
                 <div class="step-title">
@@ -230,75 +392,77 @@
             </div>
             <div class="step-body">
                 <div class="step-content">
-                    <p>تبدأ رحلتك في النظام عبر خطوتين أساسيتين لضمان الأمان وتوجيهك لبيئة العمل الخاصة بك:</p>
+                    <p>تبدأ رحلتك في النظام عبر خطوتين أساسيتين لضمان الأمان وتوجيهك لبيئة العمل المخصصة لك:</p>
                     <ul class="feature-list">
-                        <li>إدخال اسم المستخدم وكلمة المرور الخاصة بك بدقة.</li>
+                        <li>إدخال <strong>اسم المستخدم</strong> و<strong>كلمة المرور</strong> الخاصة بك بدقة.</li>
                         <li>اختيار العيادة المراد العمل بها من القائمة المنسدلة (مثل: عيادة الجراحة العامة، الأسنان، الجلدية...).</li>
                     </ul>
                     <div class="note-box">
-                        <i class="fa-solid fa-shield-halved"></i> يضمن هذا النظام فصل صلاحيات العمل وتوجيه الممرض للعيادة الصحيحة مباشرة.
+                        <i class="fa-solid fa-shield-halved"></i>
+                        <div>يضمن هذا النظام توجيه الممرض للعيادة الصحيحة مباشرة مع حفظ كافة الصلاحيات والأمان.</div>
                     </div>
                 </div>
                 <div class="img-container">
-                    <img src="step1-login.jpg" alt="شاشة تسجيل الدخول واختيار العيادة" onclick="openModal(this.src)">
-                    <div class="img-caption">انقر على الصورة لتكبيرها</div>
+                    <img src="step1-login.png" alt="شاشة تسجيل الدخول واختيار العيادة" onclick="openModal(this.src)">
+                    <div class="img-caption"><i class="fa-solid fa-magnifying-glass-plus"></i> انقر على الصورة لتكبيرها ورؤية التفاصيل</div>
                 </div>
             </div>
         </div>
 
-        <!-- الخطوة الثانية -->
-        <div class="step-card">
+        <!-- Step 2 -->
+        <div class="step-card" id="step2">
             <div class="step-header">
                 <div class="step-number">2</div>
                 <div class="step-title">
-                    <h2>الترحيب وتأكيد بيئة العمل</h2>
+                    <h2>الترحيب وتأكيد العيادة</h2>
                 </div>
             </div>
             <div class="step-body">
                 <div class="img-container">
                     <img src="step2-welcome.png" alt="شاشة الترحيب وتحميل بيئة العمل" onclick="openModal(this.src)">
-                    <div class="img-caption">انقر على الصورة لتكبيرها</div>
+                    <div class="img-caption"><i class="fa-solid fa-magnifying-glass-plus"></i> انقر على الصورة لتكبيرها ورؤية التفاصيل</div>
                 </div>
                 <div class="step-content">
-                    <p>بعد إتمام تسجيل الدخول بنجاح، ستظهر لك شاشة التحميل الترحيبية:</p>
+                    <p>بعد إتمام تسجيل الدخول بنجاح، ستظهر لك شاشة التحميل الترحيبية لتأكيد بيانات الممرض:</p>
                     <ul class="feature-list">
-                        <li>عرض اسم المستخدم بشكل ترحيبي ومؤكد (مثل: خالد أحمد محمد).</li>
-                        <li>تأكيد جاهزية العيادة التي تم اختيارها (مثل: عيادة الجراحة العامة).</li>
+                        <li>عرض اسم المستخدم بشكل ترفيهي ومؤكد (مثل: خالد أحمد محمد).</li>
+                        <li>تأكيد اسم العيادة التي تم الاتصال بها (مثل: عيادة الجراحة العامة).</li>
                         <li>شريط تقدم آلي يفتح واجهة العمل المخصصة لمهامك فوراً.</li>
                     </ul>
                 </div>
             </div>
         </div>
 
-        <!-- الخطوة الثالثة -->
-        <div class="step-card">
+        <!-- Step 3 -->
+        <div class="step-card" id="step3">
             <div class="step-header">
                 <div class="step-number">3</div>
                 <div class="step-title">
-                    <h2>إدارة بيانات المريض والعلامات الحيوية وتسجيل الحالة</h2>
+                    <h2>إدخال بيانات المريض والعلامات الحيوية</h2>
                 </div>
             </div>
             <div class="step-body">
                 <div class="step-content">
-                    <p>هذه هي نافذة العمل الرئيسية للتمريض، حيث يتم تسجيل تفاصيل زيارة المريض بكل دقّة:</p>
+                    <p>هذه هي نافذة العمل الرئيسية للتمريض، حيث يتم إكمال وتسجيل تفاصيل زيارة المريض بكل دقّة:</p>
                     <ul class="feature-list">
-                        <li>إكمال الحقول الأساسية الإجبارية المتبوعة بعلامة النجمة <strong style="color: red;">*</strong> مثل (اسم المريض، الرقم الطبي، التاريخ، التشخيص، والعلاج).</li>
-                        <li>إدخال العلامات الحيوية (الضغط، الننبض، الحرارة، التنفس، الوزن، الطول، والسكر العشوائي).</li>
-                        <li>مراجعة البيانات جيداً قبل الضغط على زر <strong>(حفظ)</strong> لتسجيل الحالة في النظام.</li>
+                        <li>إكمال الحقول الأساسية الإجبارية المتبوعة بعلامة النجمة <strong style="color: #ef4444;">*</strong> مثل (اسم المريض، الرقم الطبي، التاريخ، التشخيص، والعلاج).</li>
+                        <li>إدخال العلامات الحيوية كاملة (الضغط، النبض، الحرارة، التنفس، الوزن، الطول، والسكر العشوائي).</li>
+                        <li>مراجعة البيانات جيداً ثم الضغط على زر <strong>(حفظ)</strong>.</li>
                     </ul>
                     <div class="note-box">
-                        <i class="fa-solid fa-circle-exclamation"></i> احرص على التأكد من ملء كافة الحقول الإجبارية الحاصلة على علامة النجمة (*) لتفادي أي نقص في بيانات المريض.
+                        <i class="fa-solid fa-triangle-exclamation"></i>
+                        <div>تأكد من ملء الحقول الإجبارية المشار إليها بنجمة (*) لضمان حفظ الحالة بالشكل الصحيح.</div>
                     </div>
                 </div>
                 <div class="img-container">
                     <img src="step3-dashboard.png" alt="شاشة إدخال بيانات المريض والعلامات الحيوية" onclick="openModal(this.src)">
-                    <div class="img-caption">انقر على الصورة لتكبيرها</div>
+                    <div class="img-caption"><i class="fa-solid fa-magnifying-glass-plus"></i> انقر على الصورة لتكبيرها ورؤية التفاصيل</div>
                 </div>
             </div>
         </div>
 
-        <!-- الخطوة الرابعة -->
-        <div class="step-card">
+        <!-- Step 4 -->
+        <div class="step-card" id="step4">
             <div class="step-header">
                 <div class="step-number">4</div>
                 <div class="step-title">
@@ -308,10 +472,43 @@
             <div class="step-body">
                 <div class="img-container">
                     <img src="step4-records.png" alt="سجل الزيارات وإدارة الحالات" onclick="openModal(this.src)">
-                    <div class="img-caption">انقر على الصورة لتكبيرها</div>
+                    <div class="img-caption"><i class="fa-solid fa-magnifying-glass-plus"></i> انقر على الصورة لتكبيرها ورؤية التفاصيل</div>
                 </div>
                 <div class="step-content">
-                    <p>بعد إتمام الحفظ بنجاح، تظهر الحالة مباشرة في جدول "سجل الزيارات" بالأسفل:</p>
+                    <p>بمجرد الضغط على زر الحفظ، تظهر الحالة فوراً في جدول "سجل الزيارات" المتاح بأسفل الشاشة:</p>
                     <ul class="feature-list">
-                        <li>عرض تفصيلي لكافة الحالات المسجلة خلال اليوم مع عداد الحالات المتجدد.</li>
-                        <li>
+                        <li>عرض تفصيلي لكافة الحالات المسجلة اليوم مع تحديث تلقائي لعداد الحالات.</li>
+                        <li>إمكانية <strong>تعديل</strong> بيانات أي حالة عبر خيار التعديل المتاح بجانب الحالة.</li>
+                        <li>إمكانية <strong>حذف</strong> الحالة بسهولة عند الحاجة من جدول السجل.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Footer Area -->
+    <footer>
+        <p>جميع الحقوق المحفوظة لـ Apexora Health Solutions © 2026</p>
+        <div class="dev-credit">
+            Designed & Developed by <strong>Mohamed Abdel Nasser Abdel Moneim</strong>
+        </div>
+    </footer>
+
+    <!-- Lightbox Modal -->
+    <div id="imgModal" class="modal" onclick="closeModal()">
+        <span class="modal-close">&times;</span>
+        <img id="modalImg" src="" alt="Zoomed View">
+    </div>
+
+    <script>
+        function openModal(src) {
+            document.getElementById('imgModal').style.display = 'flex';
+            document.getElementById('modalImg').src = src;
+        }
+        function closeModal() {
+            document.getElementById('imgModal').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
