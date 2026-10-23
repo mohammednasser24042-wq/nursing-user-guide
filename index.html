@@ -4,511 +4,213 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>دليل استخدام نظام تمريض العيادات - Apexora</title>
-    <!-- Google Fonts - Cairo -->
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        :root {
-            --primary: #0f2942;
-            --primary-dark: #0a1c2e;
-            --accent: #0055fe;
-            --accent-hover: #0042cc;
-            --teal: #00897b;
-            --bg-light: #f4f7fa;
-            --card-bg: #ffffff;
-            --text-main: #1e293b;
-            --text-muted: #64748b;
-            --border-color: #e2e8f0;
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Cairo', sans-serif;
-        }
-
-        body {
-            background-color: var(--bg-light);
-            color: var(--text-main);
-            line-height: 1.8;
-            overflow-x: hidden;
-        }
-
-        /* Header Header Area */
-        header {
-            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 50%, #1b365d 100%);
-            color: white;
-            padding: 50px 20px 80px;
-            text-align: center;
-            position: relative;
-            box-shadow: 0 10px 30px rgba(15, 41, 66, 0.2);
-        }
-
-        .header-logo {
-            width: 110px;
-            height: 110px;
-            margin: 0 auto 20px;
-            border-radius: 50%;
-            background: #fff;
-            padding: 8px;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-            border: 3px solid var(--accent);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-        }
-
-        .header-logo img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            border-radius: 50%;
-        }
-
-        header h1 {
-            font-size: 2.5rem;
-            font-weight: 900;
-            letter-spacing: -0.5px;
-            margin-bottom: 10px;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
-        }
-
-        header p {
-            font-size: 1.15rem;
-            color: #cbd5e1;
-            max-width: 650px;
-            margin: 0 auto 20px;
-        }
-
-        .developer-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            padding: 8px 20px;
-            border-radius: 50px;
-            font-size: 0.9rem;
-            color: #60a5fa;
-            direction: ltr;
-            font-weight: 600;
-        }
-
-        /* Container & Navigation */
-        .container {
-            max-width: 1100px;
-            margin: -40px auto 60px;
-            padding: 0 20px;
-            position: relative;
-            z-index: 10;
-        }
-
-        .quick-nav {
-            background: white;
-            border-radius: 16px;
-            padding: 15px 25px;
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-            margin-bottom: 40px;
-            border: 1px solid var(--border-color);
-            flex-wrap: wrap;
-            gap: 15px;
-        }
-
-        .nav-item {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            color: var(--text-main);
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 0.95rem;
-            transition: color 0.3s ease;
-        }
-
-        .nav-item:hover {
-            color: var(--accent);
-        }
-
-        .nav-icon {
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            background: #eff6ff;
-            color: var(--accent);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.85rem;
-        }
-
-        /* Step Card */
-        .step-card {
-            background: var(--card-bg);
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.04);
-            margin-bottom: 40px;
-            overflow: hidden;
-            border: 1px solid var(--border-color);
-            transition: all 0.3s ease;
-        }
-
-        .step-card:hover {
-            box-shadow: 0 15px 35px rgba(0,0,0,0.08);
-        }
-
-        .step-header {
-            background: var(--primary);
-            color: white;
-            padding: 22px 30px;
-            display: flex;
-            align-items: center;
-            gap: 18px;
-        }
-
-        .step-number {
-            background: linear-gradient(135deg, var(--accent), #2563eb);
-            color: white;
-            width: 45px;
-            height: 45px;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 800;
-            font-size: 1.4rem;
-            box-shadow: 0 4px 12px rgba(0, 85, 254, 0.4);
-            flex-shrink: 0;
-        }
-
-        .step-title h2 {
-            font-size: 1.35rem;
-            font-weight: 800;
-        }
-
-        .step-body {
-            padding: 35px;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 35px;
-            align-items: center;
-        }
-
-        @media (max-width: 850px) {
-            .step-body {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .step-content p {
-            font-size: 1.05rem;
-            color: #334155;
-            margin-bottom: 20px;
-            line-height: 1.9;
-        }
-
-        .feature-list {
-            list-style: none;
-        }
-
-        .feature-list li {
-            position: relative;
-            padding-right: 32px;
-            margin-bottom: 14px;
-            font-size: 1rem;
-            color: #1e293b;
-            font-weight: 600;
-        }
-
-        .feature-list li::before {
-            content: "\f00c";
-            font-family: "Font Awesome 6 Free";
-            font-weight: 900;
-            position: absolute;
-            right: 0;
-            top: 2px;
-            width: 22px;
-            height: 22px;
-            background: #e0f2fe;
-            color: var(--accent);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.75rem;
-        }
-
-        .img-container {
-            text-align: center;
-            position: relative;
-        }
-
-        .img-container img {
-            width: 100%;
-            border-radius: 12px;
-            border: 3px solid #f1f5f9;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .img-container img:hover {
-            transform: scale(1.02);
-            border-color: var(--accent);
-        }
-
-        .img-caption {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            margin-top: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 6px;
-        }
-
-        .note-box {
-            background: #f0f9ff;
-            border-right: 4px solid var(--accent);
-            padding: 16px 20px;
-            border-radius: 8px;
-            margin-top: 20px;
-            font-size: 0.95rem;
-            color: #0369a1;
-            display: flex;
-            align-items: flex-start;
-            gap: 12px;
-        }
-
-        .note-box i {
-            font-size: 1.2rem;
-            margin-top: 3px;
-            color: var(--accent);
-        }
-
-        /* Footer */
-        footer {
-            background: var(--primary-dark);
-            color: white;
-            padding: 40px 20px;
-            text-align: center;
-            border-top: 1px solid rgba(255,255,255,0.1);
-        }
-
-        footer .dev-credit {
-            font-size: 1rem;
-            color: #94a3b8;
-            margin-top: 10px;
-            direction: ltr;
-        }
-
-        footer .dev-credit strong {
-            color: #60a5fa;
-        }
-
-        /* Lightbox Modal */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(15, 23, 42, 0.9);
-            align-items: center;
-            justify-content: center;
-            backdrop-filter: blur(5px);
-        }
-
-        .modal img {
-            max-width: 92%;
-            max-height: 90vh;
-            border-radius: 12px;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
-        }
-
-        .modal-close {
-            position: absolute;
-            top: 25px;
-            left: 35px;
-            color: white;
-            font-size: 2.2rem;
-            cursor: pointer;
-            transition: color 0.2s;
-        }
-
-        .modal-close:hover {
-            color: #f43f5e;
-        }
-    </style>
+    
+    <!-- Custom CSS (ملف التنسيقات المستقل) -->
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
 
+    <!-- Scroll Progress Indicator -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+
     <!-- Header Section -->
-    <header>
-        <div class="header-logo">
-            <img src="logo.jpg" alt="Apexora Logo">
-        </div>
-        <h1>دليل استخدام نظام تمريض العيادات</h1>
-        <p>دليلك التفاعلي الشامل للتعامل مع برنامج إدارة العيادات Apexora Health Solutions بأسلوب مبسط واحترافي</p>
-        <div class="developer-badge">
-            <i class="fa-solid fa-code"></i>
-            Designed & Developed by Mohamed Abdel Nasser Abdel Moneim
+    <header class="hero-header">
+        <div class="header-overlay"></div>
+        <div class="header-container">
+            <div class="logo-wrapper">
+                <img src="logo.jpg" alt="Apexora Logo" class="brand-logo">
+            </div>
+            <h1 class="main-title">دليل استخدام نظام تمريض العيادات</h1>
+            <p class="subtitle">دليلك التفاعلي الشامل للتعامل مع برنامج إدارة العيادات Apexora Health Solutions بأسلوب متطور واحترافي</p>
+            <div class="developer-badge">
+                <i class="fa-solid fa-code"></i>
+                <span>Designed & Developed by <strong>Mohamed Abdel Nasser Abdel Moneim</strong></span>
+            </div>
         </div>
     </header>
 
-    <div class="container">
+    <!-- Main Container -->
+    <main class="main-container">
 
         <!-- Quick Navigation -->
-        <div class="quick-nav">
+        <nav class="quick-nav">
             <a href="#step1" class="nav-item">
-                <span class="nav-icon">1</span> تسجيل الدخول
+                <span class="nav-badge">1</span>
+                <span>تسجيل الدخول</span>
             </a>
             <a href="#step2" class="nav-item">
-                <span class="nav-icon">2</span> الترحيب والعيادة
+                <span class="nav-badge">2</span>
+                <span>تأكيد العيادة</span>
             </a>
             <a href="#step3" class="nav-item">
-                <span class="nav-icon">3</span> تسجيل البيانات
+                <span class="nav-badge">3</span>
+                <span>تسجيل البيانات</span>
             </a>
             <a href="#step4" class="nav-item">
-                <span class="nav-icon">4</span> إدارة السجل
+                <span class="nav-badge">4</span>
+                <span>إدارة السجل</span>
             </a>
-        </div>
+        </nav>
 
-        <!-- Step 1 -->
-        <div class="step-card" id="step1">
+        <!-- Step 1 Card -->
+        <section class="step-card" id="step1">
             <div class="step-header">
-                <div class="step-number">1</div>
-                <div class="step-title">
+                <div class="step-num">01</div>
+                <div class="step-heading">
                     <h2>تسجيل الدخول واختيار العيادة</h2>
+                    <span class="step-subheading">الخطوة الأولى للوصول إلى النظام</span>
                 </div>
             </div>
             <div class="step-body">
                 <div class="step-content">
-                    <p>تبدأ رحلتك في النظام عبر خطوتين أساسيتين لضمان الأمان وتوجيهك لبيئة العمل المخصصة لك:</p>
-                    <ul class="feature-list">
+                    <p class="description">تبدأ رحلتك في النظام عبر خطوتين أساسيتين لضمان الأمان وتوجيهك لبيئة العمل المخصصة لك:</p>
+                    <ul class="styled-list">
                         <li>إدخال <strong>اسم المستخدم</strong> و<strong>كلمة المرور</strong> الخاصة بك بدقة.</li>
                         <li>اختيار العيادة المراد العمل بها من القائمة المنسدلة (مثل: عيادة الجراحة العامة، الأسنان، الجلدية...).</li>
                     </ul>
-                    <div class="note-box">
+                    <div class="alert-box info-alert">
                         <i class="fa-solid fa-shield-halved"></i>
                         <div>يضمن هذا النظام توجيه الممرض للعيادة الصحيحة مباشرة مع حفظ كافة الصلاحيات والأمان.</div>
                     </div>
                 </div>
-                <div class="img-container">
-                    <img src="step1-login.png" alt="شاشة تسجيل الدخول واختيار العيادة" onclick="openModal(this.src)">
-                    <div class="img-caption"><i class="fa-solid fa-magnifying-glass-plus"></i> انقر على الصورة لتكبيرها ورؤية التفاصيل</div>
+                <div class="img-wrapper">
+                    <div class="img-card" onclick="openLightbox('step1-login.png')">
+                        <img src="step1-login.png" alt="شاشة تسجيل الدخول واختيار العيادة" loading="lazy">
+                        <div class="img-overlay">
+                            <i class="fa-solid fa-magnifying-glass-plus"></i>
+                            <span>تطوير وتكبير الصورة</span>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
+        </section>
 
-        <!-- Step 2 -->
-        <div class="step-card" id="step2">
+        <!-- Step 2 Card -->
+        <section class="step-card" id="step2">
             <div class="step-header">
-                <div class="step-number">2</div>
-                <div class="step-title">
-                    <h2>الترحيب وتأكيد العيادة</h2>
+                <div class="step-num">02</div>
+                <div class="step-heading">
+                    <h2>الترحيب وتأكيد بيئة العمل</h2>
+                    <span class="step-subheading">التحقق الآلي وشاشة التحميل</span>
                 </div>
             </div>
-            <div class="step-body">
-                <div class="img-container">
-                    <img src="step2-welcome.png" alt="شاشة الترحيب وتحميل بيئة العمل" onclick="openModal(this.src)">
-                    <div class="img-caption"><i class="fa-solid fa-magnifying-glass-plus"></i> انقر على الصورة لتكبيرها ورؤية التفاصيل</div>
+            <div class="step-body reverse">
+                <div class="img-wrapper">
+                    <div class="img-card" onclick="openLightbox('step2-welcome.png')">
+                        <img src="step2-welcome.png" alt="شاشة الترحيب وتحميل بيئة العمل" loading="lazy">
+                        <div class="img-overlay">
+                            <i class="fa-solid fa-magnifying-glass-plus"></i>
+                            <span>تطوير وتكبير الصورة</span>
+                        </div>
+                    </div>
                 </div>
                 <div class="step-content">
-                    <p>بعد إتمام تسجيل الدخول بنجاح، ستظهر لك شاشة التحميل الترحيبية لتأكيد بيانات الممرض:</p>
-                    <ul class="feature-list">
-                        <li>عرض اسم المستخدم بشكل ترفيهي ومؤكد (مثل: خالد أحمد محمد).</li>
+                    <p class="description">بعد إتمام تسجيل الدخول بنجاح، ستظهر لك شاشة التحميل الترحيبية لتأكيد بيانات الممرض:</p>
+                    <ul class="styled-list">
+                        <li>عرض اسم المستخدم بشكل مؤكد (مثل: خالد أحمد محمد).</li>
                         <li>تأكيد اسم العيادة التي تم الاتصال بها (مثل: عيادة الجراحة العامة).</li>
                         <li>شريط تقدم آلي يفتح واجهة العمل المخصصة لمهامك فوراً.</li>
                     </ul>
                 </div>
             </div>
-        </div>
+        </section>
 
-        <!-- Step 3 -->
-        <div class="step-card" id="step3">
+        <!-- Step 3 Card -->
+        <section class="step-card" id="step3">
             <div class="step-header">
-                <div class="step-number">3</div>
-                <div class="step-title">
+                <div class="step-num">03</div>
+                <div class="step-heading">
                     <h2>إدخال بيانات المريض والعلامات الحيوية</h2>
+                    <span class="step-subheading">واجهة الشغل الرئيسية للتمريض</span>
                 </div>
             </div>
             <div class="step-body">
                 <div class="step-content">
-                    <p>هذه هي نافذة العمل الرئيسية للتمريض، حيث يتم إكمال وتسجيل تفاصيل زيارة المريض بكل دقّة:</p>
-                    <ul class="feature-list">
-                        <li>إكمال الحقول الأساسية الإجبارية المتبوعة بعلامة النجمة <strong style="color: #ef4444;">*</strong> مثل (اسم المريض، الرقم الطبي، التاريخ، التشخيص، والعلاج).</li>
+                    <p class="description">هذه هي نافذة العمل الرئيسية للتمريض، حيث يتم إكمال وتسجيل تفاصيل زيارة المريض بكل دقّة:</p>
+                    <ul class="styled-list">
+                        <li>إكمال الحقول الأساسية الإجبارية المتبوعة بعلامة النجمة <strong class="required-star">*</strong> مثل (اسم المريض، الرقم الطبي، التاريخ، التشخيص، والعلاج).</li>
                         <li>إدخال العلامات الحيوية كاملة (الضغط، النبض، الحرارة، التنفس، الوزن، الطول، والسكر العشوائي).</li>
                         <li>مراجعة البيانات جيداً ثم الضغط على زر <strong>(حفظ)</strong>.</li>
                     </ul>
-                    <div class="note-box">
+                    <div class="alert-box warning-alert">
                         <i class="fa-solid fa-triangle-exclamation"></i>
                         <div>تأكد من ملء الحقول الإجبارية المشار إليها بنجمة (*) لضمان حفظ الحالة بالشكل الصحيح.</div>
                     </div>
                 </div>
-                <div class="img-container">
-                    <img src="step3-dashboard.png" alt="شاشة إدخال بيانات المريض والعلامات الحيوية" onclick="openModal(this.src)">
-                    <div class="img-caption"><i class="fa-solid fa-magnifying-glass-plus"></i> انقر على الصورة لتكبيرها ورؤية التفاصيل</div>
+                <div class="img-wrapper">
+                    <div class="img-card" onclick="openLightbox('step3-dashboard.png')">
+                        <img src="step3-dashboard.png" alt="شاشة إدخال بيانات المريض والعلامات الحيوية" loading="lazy">
+                        <div class="img-overlay">
+                            <i class="fa-solid fa-magnifying-glass-plus"></i>
+                            <span>تطوير وتكبير الصورة</span>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
+        </section>
 
-        <!-- Step 4 -->
-        <div class="step-card" id="step4">
+        <!-- Step 4 Card -->
+        <section class="step-card" id="step4">
             <div class="step-header">
-                <div class="step-number">4</div>
-                <div class="step-title">
-                    <h2>سجل الزيارات وإدارة الحالات (تعديل وحذف)</h2>
+                <div class="step-num">04</div>
+                <div class="step-heading">
+                    <h2>سجل الزيارات وإدارة الحالات</h2>
+                    <span class="step-subheading">التحكم، التعديل والحذف</span>
                 </div>
             </div>
-            <div class="step-body">
-                <div class="img-container">
-                    <img src="step4-records.png" alt="سجل الزيارات وإدارة الحالات" onclick="openModal(this.src)">
-                    <div class="img-caption"><i class="fa-solid fa-magnifying-glass-plus"></i> انقر على الصورة لتكبيرها ورؤية التفاصيل</div>
+            <div class="step-body reverse">
+                <div class="img-wrapper">
+                    <div class="img-card" onclick="openLightbox('step4-records.png')">
+                        <img src="step4-records.png" alt="سجل الزيارات وإدارة الحالات" loading="lazy">
+                        <div class="img-overlay">
+                            <i class="fa-solid fa-magnifying-glass-plus"></i>
+                            <span>تطوير وتكبير الصورة</span>
+                        </div>
+                    </div>
                 </div>
                 <div class="step-content">
-                    <p>بمجرد الضغط على زر الحفظ، تظهر الحالة فوراً في جدول "سجل الزيارات" المتاح بأسفل الشاشة:</p>
-                    <ul class="feature-list">
+                    <p class="description">بمجرد الضغط على زر الحفظ، تظهر الحالة فوراً في جدول "سجل الزيارات" المتاح بأسفل الشاشة:</p>
+                    <ul class="styled-list">
                         <li>عرض تفصيلي لكافة الحالات المسجلة اليوم مع تحديث تلقائي لعداد الحالات.</li>
-                        <li>إمكانية <strong>تعديل</strong> بيانات أي حالة عبر خيار التعديل المتاح بجانب الحالة.</li>
+                        <li>إمكانية <strong>تعديل</strong> بيانات أي حالة عبر أزرة الإجراءات في الجدول.</li>
                         <li>إمكانية <strong>حذف</strong> الحالة بسهولة عند الحاجة من جدول السجل.</li>
                     </ul>
                 </div>
             </div>
-        </div>
+        </section>
 
-    </div>
+    </main>
+
+    <!-- Floating Back to Top Button -->
+    <button class="back-to-top" id="backToTop" title="العودة للأعلى">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
 
     <!-- Footer Area -->
-    <footer>
-        <p>جميع الحقوق المحفوظة لـ Apexora Health Solutions © 2026</p>
-        <div class="dev-credit">
-            Designed & Developed by <strong>Mohamed Abdel Nasser Abdel Moneim</strong>
+    <footer class="main-footer">
+        <div class="footer-content">
+            <p class="copyright">جميع الحقوق المحفوظة لـ Apexora Health Solutions © 2026</p>
+            <div class="dev-credit">
+                Designed & Developed by <strong>Mohamed Abdel Nasser Abdel Moneim</strong>
+            </div>
         </div>
     </footer>
 
-    <!-- Lightbox Modal -->
-    <div id="imgModal" class="modal" onclick="closeModal()">
-        <span class="modal-close">&times;</span>
-        <img id="modalImg" src="" alt="Zoomed View">
+    <!-- Modal / Lightbox -->
+    <div id="lightboxModal" class="lightbox-modal">
+        <span class="lightbox-close">&times;</span>
+        <img id="lightboxImg" class="lightbox-content" alt="Enlarged view">
     </div>
 
-    <script>
-        function openModal(src) {
-            document.getElementById('imgModal').style.display = 'flex';
-            document.getElementById('modalImg').src = src;
-        }
-        function closeModal() {
-            document.getElementById('imgModal').style.display = 'none';
-        }
-    </script>
+    <!-- Custom JS (ملف السكريبتات المستقل) -->
+    <script src="assets/js/main.js"></script>
 </body>
 </html>
