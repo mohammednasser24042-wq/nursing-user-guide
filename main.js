@@ -10,7 +10,9 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('scroll', () => {
         const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
         const progress = (window.scrollY / totalHeight) * 100;
-        scrollProgress.style.width = `${progress}%`;
+        if (scrollProgress) {
+            scrollProgress.style.width = `${progress}%`;
+        }
     });
 
     // 2. Back to Top Button Control
@@ -23,12 +25,14 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    backToTopBtn.addEventListener('click', () => {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
+    if (backToTopBtn) {
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
         });
-    });
+    }
 
     // 3. Lightbox Modal Functions
     const modal = document.getElementById('lightboxModal');
@@ -36,23 +40,27 @@ document.addEventListener('DOMContentLoaded', () => {
     const closeBtn = document.querySelector('.lightbox-close');
 
     window.openLightbox = function(src) {
-        modal.style.display = 'flex';
-        modalImg.src = src;
+        if (modal && modalImg) {
+            modal.style.display = 'flex';
+            modalImg.src = src;
+        }
     };
 
-    closeBtn.addEventListener('click', () => {
-        modal.style.display = 'none';
-    });
-
-    modal.addEventListener('click', (e) => {
-        if (e.target === modal) {
+    if (closeBtn && modal) {
+        closeBtn.addEventListener('click', () => {
             modal.style.display = 'none';
-        }
-    });
+        });
+
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+    }
 
     // Close on Escape Key
     document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && modal.style.display === 'flex') {
+        if (e.key === 'Escape' && modal && modal.style.display === 'flex') {
             modal.style.display = 'none';
         }
     });
