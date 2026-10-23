@@ -436,7 +436,7 @@ body {
     cursor: pointer;
     transition: var(--transition);
 }
-
+ 
 .lightbox-close:hover {
     color: #ef4444;
 }
