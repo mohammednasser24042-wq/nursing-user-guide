@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
             scrollProgress.style.width = `${progress}%`;
         }
     });
-
+ 
     // 2. Back to Top Button Control
     const backToTopBtn = document.getElementById('backToTop');
     window.addEventListener('scroll', () => {
